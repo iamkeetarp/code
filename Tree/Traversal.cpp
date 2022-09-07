@@ -19,7 +19,7 @@ void inorder(Node *root)
     if (root != NULL)
     {
         inorder(root->left);
-        cout << root->key << endl;
+        cout << root->key << " ";
         inorder(root->right);
     }
 }
@@ -28,7 +28,7 @@ void preorder(Node *root)
 {
     if (root != NULL)
     {
-        cout << root->key << endl;
+        cout << root->key << " ";
         preorder(root->left);
         preorder(root->right);
     }
@@ -40,11 +40,23 @@ void postorder(Node *root)
     {
         postorder(root->left);
         postorder(root->right);
-        cout << root->key << endl;
+        cout << root->key << " ";
     }
 }
 int main()
 {
+
+    //         10
+    //         /\
+    //        /  \
+    //       20   30
+    //       /\    \
+    //      /  \    \
+    //    40   50    60
+    //          /\
+    //         /  \
+    //        70   80
+
     Node *root = new Node(10);
     root->left = new Node(20);
     root->left->left = new Node(40);
@@ -55,13 +67,14 @@ int main()
     root->right = new Node(30);
     root->right->right = new Node(60);
 
+    cout << "\nInorder"
+         << " ";
     inorder(root);
-    cout << "\n"
-         << endl;
+    cout << "\nPreorder"
+         << " ";
     preorder(root);
-    cout << "\n"
-         << endl;
+    cout << "\nPostorder"
+         << " ";
     postorder(root);
-
     return 0;
 }
